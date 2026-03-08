@@ -18,6 +18,12 @@ ALso keen to work on personal  projects by using R but also use other languages 
 3. How to apply statistical thinking to real-world datasets
 4. How to build skills relevant to a career in *data science*
 
+## Useful Links
+
+- [University of Auckland - Statistics Department](https://www.stat.auckland.ac.nz/)
+- [R for Data Science](https://r4ds.hadley.nz/)
+- [ggplot2 Documentation](https://ggplot2.tidyverse.org/)
+
 ## Personal Project
 For this project, I have done statistical analysis and data visualisation to analyse the long-term trends in the New Zealand Housing Market, as I have used ggplot2 and tidyverse to conduct this deep analysis for the data from 1980s to 2025. 
 

@@ -2,7 +2,8 @@
 
 ## About Me
 
-A little about me: I am a **curious**, *outgoing* person who dedicates myself to the gym and studies!!
+A little about me: I am a **curious**, *outgoing* person who dedicates to the gym and studies!
+ALso keen to work on personal  projects by using R but also use other languages as well.
 
 ## My Degree
 
@@ -17,12 +18,9 @@ A little about me: I am a **curious**, *outgoing* person who dedicates myself to
 3. How to apply statistical thinking to real-world datasets
 4. How to build skills relevant to a career in *data science*
 
-## Useful Links
+## Personal Project
+For this project, I have done statistical analysis and data visualisation to analyse the long-term trends in the New Zealand Housing Market, as I have used ggplot2 and tidyverse to conduct this deep analysis for the data from 1980s to 2025. 
 
-- [University of Auckland - Statistics Department](https://www.stat.auckland.ac.nz/)
-- [R for Data Science](https://r4ds.hadley.nz/)
-- [ggplot2 Documentation](https://ggplot2.tidyverse.org/)
+DO check out the project !!! (https://github.com/lakshi05/housing-analysis-nz)
 
-## Let's Go!
-
-![Excited data science GIF](https://media.giphy.com/media/3o7btNhMBytxAM6YBa/giphy.gif)
+![Excited data science GIF](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHE2dnQ2cmI3c3lwZ2I1ampkNzFjYXUyb3RscmV4dDc3cmJoMGZjaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zLLQU5typHsmiI1iWn/giphy.gif)

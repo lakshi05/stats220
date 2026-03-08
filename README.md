@@ -1,6 +1,6 @@
-# stats220
+## STATS 220 - Data Technologies
 
-This is my repo for STATS 220. 
+# This is my repo for STATS 220. 
 
 A little about me: I am a curious, outgoing person who dedicates myself to the gym and studies!!
 

@@ -2,8 +2,8 @@
 
 ## About Me
 
-A little about me: I am a **curious**, *outgoing* person who dedicates to the gym and studies!
-ALso keen to work on personal  projects by using R but also use other languages as well.
+A little about me: I am a **curious**, *outgoing* person who dedicates myself to the gym and studies!
+Also keen to work on personal projects using R, but also use other languages.
 
 ## My Degree
 
@@ -25,7 +25,7 @@ ALso keen to work on personal  projects by using R but also use other languages 
 - [ggplot2 Documentation](https://ggplot2.tidyverse.org/)
 
 ## Personal Project
-For this project, I have done statistical analysis and data visualisation to analyse the long-term trends in the New Zealand Housing Market, as I have used ggplot2 and tidyverse to conduct this deep analysis for the data from 1980s to 2025. 
+For this project, I have conducted statistical analysis and data visualisation to examine long-term trends in the New Zealand Housing Market, using ggplot2 and the tidyverse to analyse data from the 1980s to 2025. 
 
 DO check out the project !!! (https://github.com/lakshi05/housing-analysis-nz)
 

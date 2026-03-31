@@ -1,0 +1,143 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE, 
+                      fig.width = 10, fig.height = 6, out.width = "100%")
+
+```
+
+```{css}
+body {
+  font-family: Helvetica, sans-serif;
+  background-color: #f9f9f9;
+  color: #000000;
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 20px;
+}
+
+h2 {
+  color: #1a6b1a;
+  background-color: #e8f5e8;
+  text-align: center;
+  padding: 12px 0;
+  border-radius: 6px;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #000000;
+}
+
+.summary-box {
+  background-color: #e8f5e8;
+  border-left: 6px solid #1a6b1a;
+  padding: 14px 24px;
+  margin: 24px 0;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #000000;
+}
+
+.summary-box strong {
+  color: #1a6b1a;
+}
+
+.chart-caption {
+  text-align: center;
+  font-size: 13px;
+  color: #555555;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid #c8e6c8;
+  margin: 30px 0;
+}
+```
+
+
+
+```{r}
+library(tidyverse)
+
+# Reading the data directly from our Google spreadsheet
+logged_data <-"https://docs.google.com/spreadsheets/d/e/2PACX-1vT1y6xJgFjjSg3ALmUeJF7VVYIYere3DmdHjrHMiBYq8eDwxxjT8840UPbXw9RYRtpLFsQsHC8yQhG2/pub?output=csv"
+
+# Creating a new data frame for our function
+latest_data <- read_csv(logged_data) %>%
+  # Renaming the variables in the spreadsheet
+  rename(time_stamp = 1,
+         day_and_time = 2,
+         primary_focus = 3,
+         muscle_group = 4,
+         session_time = 5,
+         no_of_excercises = 6,
+         session_hard = 7,
+         session_feel = 8,
+         notes = 9)
+
+# Computing the summary values to put the code inline
+excerise_time <- max(latest_data$no_of_excercises)
+total_sessions <- nrow(latest_data)
+average_session <- round(mean(latest_data$session_time), 2)
+most_common_training <- names(which.max(table(latest_data$primary_focus)))
+common_training_amount <- max(table(latest_data$primary_focus))
+
+# Filter to only the most common training type sessions
+strength_sessions <- latest_data %>%
+  filter(primary_focus == most_common_training)
+
+# Find the most common session feel within that group
+most_common_feel <- names(which.max(table(strength_sessions$session_feel)))
+
+# Count how many sessions had that most common feel (fully dynamic)
+energised_strength <- strength_sessions %>%
+  filter(session_feel == most_common_feel) %>%
+  nrow()
+```
+
+
+## Tracking Gym Sessions with Training Habits and Session Experience
+
+This report analyses **`r total_sessions`** gym sessions logged by individuals
+in Auckland. Each session logs the **type of training a user performs ** in the session, how long the session was, and how the session felt overall to the user.
+
+The average session length for all logs is **`r average_session`** mins per session.
+
+<hr>
+```{r}
+# First bar chart 
+latest_data %>%
+  ggplot() +
+  geom_bar(aes(x = primary_focus), fill = "lightblue") +
+  labs(x = "Type of Training",
+       y = "Number of Sessions",
+       title = "Number of Sessions by Training Type")
+
+```
+
+The chart above shows , it shows the **relationship between number of sessions and the type of training**. The most common training type was **"`r most_common_training`"**, which had recorded the **highest number of logged sessions at `r common_training_amount`**.  
+
+<hr>
+```{r}
+# Second bar chart 
+latest_data %>%
+  ggplot() +
+  geom_bar(aes(x = session_feel, fill = primary_focus)) +
+  labs(x = "Feeling of Session",
+       y = "Number of Sessions",
+       fill = "Training Type",
+       title = "Session Feel by Training Type",
+       subtitle = "Data was recorded in 2026")
+```
+
+The second chart above shows **how the respondents feel after completing a workout** based on their preference of the type of training that they did in their gym session. From the **"`r most_common_training`"** group, **`r energised_strength`** sessions were recorded as feeling  **"`r most_common_feel`"** after completing their workout.
